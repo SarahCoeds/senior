@@ -1,0 +1,266 @@
+/* Login.css - Complete updated file */
+
+.login-page {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  font-family: 'Arial', sans-serif;
+  overflow: hidden;
+}
+
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+  filter: brightness(0.6);
+}
+
+.overlay {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.login-card {
+  background: rgba(20, 20, 20, 0.85);
+  padding: 3rem 2rem;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 400px;
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+}
+
+.login-card h2 {
+  margin-bottom: 1.5rem;
+  color: #646cff;
+}
+
+.login-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.login-card label {
+  text-align: left;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.login-card input {
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  border: none;
+  font-size: 14px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.login-card input:focus {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 10px rgba(100, 108, 255, 0.5);
+}
+
+.login-card button {
+  padding: 0.75rem;
+  border-radius: 10px;
+  border: none;
+  background: #646cff;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.login-card button:hover {
+  background: #4f56d3;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(100, 108, 255, 0.5);
+}
+
+.signup-link {
+  margin-top: 1rem;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.signup-link span {
+  color: #646cff;
+  cursor: pointer;
+}
+
+.signup-link span:hover {
+  text-decoration: underline;
+}
+
+/* Notification Styles - Added to match your theme */
+.notification-popup {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  min-width: 300px;
+  max-width: 400px;
+  padding: 15px 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  animation: slideIn 0.3s ease-out;
+  color: white;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.notification-popup.error {
+  background: rgba(244, 67, 54, 0.9);
+  border-left: 4px solid #d32f2f;
+}
+
+.notification-popup.success {
+  background: rgba(76, 175, 80, 0.9);
+  border-left: 4px solid #388e3c;
+}
+
+.notification-popup.warning {
+  background: rgba(255, 152, 0, 0.9);
+  border-left: 4px solid #f57c00;
+}
+
+.notification-popup.info {
+  background: rgba(33, 150, 243, 0.9);
+  border-left: 4px solid #1976d2;
+}
+
+.notification-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.notification-message {
+  flex: 1;
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.notification-close {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 2px 8px;
+  margin-left: 15px;
+  border-radius: 50%;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+  line-height: 1;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notification-close:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* Optional: Add slide-out animation when closing */
+.notification-popup.closing {
+  animation: slideOut 0.3s ease-in forwards;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .login-card {
+    margin: 1rem;
+    padding: 2rem 1.5rem;
+  }
+  
+  .notification-popup {
+    left: 20px;
+    right: 20px;
+    min-width: auto;
+    max-width: none;
+    top: 10px;
+  }
+}
+
+/* Loading state styles */
+.login-card button:disabled {
+  background: #4a4f9e;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  opacity: 0.7;
+}
+
+.login-card button:disabled:hover {
+  background: #4a4f9e;
+  transform: none;
+  box-shadow: none;
+}
+
+.login-card input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Focus styles for accessibility */
+.login-card input:focus-visible {
+  outline: 2px solid #646cff;
+  outline-offset: 2px;
+}
+
+.notification-close:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
+
+/* Hover effect for the signup link */
+.signup-link span {
+  transition: all 0.3s ease;
+}
+
+.signup-link span:hover {
+  color: #8a91ff;
+}

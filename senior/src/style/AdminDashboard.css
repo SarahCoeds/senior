@@ -1,0 +1,398 @@
+/* src/pages/AdminDashboard.css */
+
+.ad-loading {
+  padding: 24px;
+  font-family: Arial, sans-serif;
+}
+
+.ad-page {
+  min-height: 100vh;
+  display: flex;
+  background: #f6f7fb;
+  color: #111827;
+  font-family: Arial, sans-serif;
+}
+
+.ad-sidebar {
+  width: 290px;
+  background: #0b1220;
+  color: #e5e7eb;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.ad-brand {
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding-bottom: 14px;
+}
+
+.ad-brand-title {
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 0.2px;
+}
+
+.ad-brand-sub {
+  font-size: 12px;
+  color: rgba(229,231,235,0.7);
+  margin-top: 6px;
+}
+
+.ad-profile {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 12px;
+}
+
+.ad-profile-name {
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.ad-profile-email {
+  font-size: 12px;
+  color: rgba(229,231,235,0.75);
+  margin-top: 4px;
+}
+
+.ad-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ad-nav-item {
+  width: 100%;
+  text-align: left;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: transparent;
+  color: #e5e7eb;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.ad-nav-item.active {
+  background: rgba(255,255,255,0.10);
+  border-color: rgba(255,255,255,0.18);
+}
+
+.ad-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.ad-btn {
+  height: 44px;
+  padding: 0 12px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  background: white;
+  cursor: pointer;
+  font-weight: 900;
+}
+
+.ad-btn-primary {
+  border-color: rgba(199, 210, 254, 1);
+  background: #2563eb;
+  color: white;
+}
+
+.ad-btn-secondary {
+  border-color: rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.06);
+  color: #e5e7eb;
+}
+
+.ad-btn-light {
+  border-color: #e5e7eb;
+  background: white;
+  color: #111827;
+}
+
+.ad-btn-danger {
+  border-color: #fecaca;
+  background: #fff1f2;
+  color: #991b1b;
+}
+
+.ad-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.ad-error {
+  margin-top: auto;
+  background: rgba(220,38,38,0.16);
+  border: 1px solid rgba(220,38,38,0.35);
+  color: #fecaca;
+  padding: 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  white-space: pre-wrap;
+}
+
+.ad-main {
+  flex: 1;
+  padding: 22px;
+}
+
+.ad-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.ad-title {
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.ad-subtitle {
+  font-size: 12px;
+  color: #6b7280;
+  margin-top: 4px;
+}
+
+.ad-topbar-right {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.ad-pill {
+  font-size: 12px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  color: #111827;
+  font-weight: 900;
+}
+
+.ad-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.ad-metric {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 14px;
+  box-shadow: 0 6px 16px rgba(17,24,39,0.05);
+}
+
+.ad-metric-label {
+  font-size: 12px;
+  color: #6b7280;
+  font-weight: 900;
+}
+
+.ad-metric-value {
+  font-size: 30px;
+  font-weight: 1000;
+  margin-top: 6px;
+}
+
+.ad-section {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  margin-top: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(17,24,39,0.05);
+}
+
+.ad-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  border-bottom: 1px solid #e5e7eb;
+  background: #fafafa;
+  gap: 10px;
+}
+
+.ad-section-title {
+  font-size: 14px;
+  font-weight: 1000;
+}
+
+.ad-right {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.ad-section-body {
+  padding: 14px;
+}
+
+.ad-search {
+  width: 280px;
+  height: 44px;
+  padding: 0 12px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  background: white;
+  font-size: 13px;
+}
+
+.ad-tablewrap {
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.ad-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.ad-table th {
+  text-align: left;
+  padding: 12px;
+  font-size: 12px;
+  color: #374151;
+  background: #f9fafb;
+}
+
+.ad-table td {
+  padding: 12px;
+  font-size: 13px;
+  border-top: 1px solid #eef2f7;
+  color: #111827;
+}
+
+.ad-link {
+  text-decoration: underline;
+  color: #2563eb;
+  font-weight: 900;
+}
+
+.ad-select {
+  height: 42px;
+  padding: 0 10px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  background: white;
+  font-weight: 900;
+}
+
+.ad-muted {
+  margin-left: 10px;
+  font-size: 12px;
+  color: #6b7280;
+  font-weight: 800;
+}
+
+.ad-empty {
+  text-align: center;
+  padding: 16px;
+  color: #6b7280;
+}
+
+.ad-footnote {
+  margin-top: 12px;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* Modals */
+.ad-modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(17,24,39,0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  z-index: 9999;
+}
+
+.ad-modal {
+  width: 740px;
+  max-width: 100%;
+  background: white;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.30);
+  padding: 14px;
+}
+
+.ad-modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.ad-modalTitle {
+  font-weight: 1000;
+  font-size: 16px;
+}
+
+.ad-modalClose {
+  border: 1px solid #e5e7eb;
+  background: white;
+  border-radius: 12px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 36px;
+}
+
+.ad-formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.ad-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  color: #111827;
+}
+
+.ad-label {
+  font-weight: 900;
+  font-size: 12px;
+  color: #374151;
+}
+
+.ad-field input,
+.ad-field select,
+.ad-field textarea {
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  font-size: 14px;
+  width: 100%;
+  font-family: Arial, sans-serif;
+}
+
+.ad-span2 {
+  grid-column: span 2;
+}
+
+.ad-modalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 14px;
+}

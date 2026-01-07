@@ -1,0 +1,344 @@
+.track-order-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  min-height: 100vh;
+  background: white;
+}
+
+.track-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  color: black;
+}
+
+.track-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.order-id {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+.id-highlight {
+  background: rgba(255,255,255,0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-family: monospace;
+  font-weight: bold;
+}
+
+.track-content {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 1024px) {
+  .track-content {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.status-section {
+  grid-column: span 1;
+}
+
+.status-card {
+  background: rgba(40,40,40,40);
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  border-top: 8px solid;
+  transition: transform 0.3s ease;
+}
+
+.status-card:hover {
+  transform: translateY(-5px);
+}
+
+.status-icon-wrapper {
+  margin-bottom: 1.5rem;
+}
+
+.status-animation {
+  display: inline-block;
+  font-size: 4rem;
+}
+
+.status-video {
+  display: inline-block;
+}
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes moveTruck {
+  0% { transform: translateX(-10px); }
+  50% { transform: translateX(10px); }
+  100% { transform: translateX(-10px); }
+}
+
+@keyframes drive {
+  0% { transform: translateX(-20px); }
+  100% { transform: translateX(20px); }
+}
+
+.package-pulse {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.package-bounce {
+  animation: bounce 1s ease-in-out infinite;
+}
+
+.truck-move {
+  animation: moveTruck 2s ease-in-out infinite;
+}
+
+.delivery-drive {
+  animation: drive 3s linear infinite alternate;
+}
+
+.delivery-bounce {
+  animation: bounce 0.5s ease-in-out infinite;
+}
+
+.status-description {
+  color: white;
+  font-size: 1.1rem;
+  margin: 1rem 0;
+}
+
+.delivery-info, .location-info {
+  background: rgba(40,40,40,40);
+  padding: 1rem;
+  border-radius: 10px;
+  margin: 1rem 0;
+  text-align: left;
+}
+
+/* Map Section */
+.map-section {
+  background: rgba(40,40,40,40);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.journey-map {
+  position: relative;
+  margin-top: 2rem;
+}
+
+.progress-line {
+  height: 6px;
+  background: #e0e0e0;
+  border-radius: 3px;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4CAF50, #2196F3);
+  border-radius: 3px;
+  transition: width 1.5s ease-in-out;
+}
+
+.checkpoints-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  position: relative;
+}
+
+.checkpoint {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.checkpoint-dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #e0e0e0;
+  border: 3px solid white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.checkpoint.completed .checkpoint-dot {
+  background: #4CAF50;
+  transform: scale(1.2);
+}
+
+.checkpoint.current .checkpoint-dot {
+  background: #2196F3;
+  box-shadow: 0 0 0 8px rgba(33, 150, 243, 0.2);
+}
+
+.checkpoint-label {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #ffffff;
+  text-align: center;
+}
+
+.current-pulse {
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(33, 150, 243, 0.3);
+  animation: pulse 2s infinite;
+}
+
+/* Vehicle Animation */
+.vehicle-container {
+  position: absolute;
+  top: -25px;
+  transform: translateX(-50%);
+  transition: left 2s ease-in-out;
+}
+
+.vehicle {
+  font-size: 2.5rem;
+  animation: bounce 1s ease-in-out infinite;
+}
+
+.vehicle-shadow {
+  width: 40px;
+  height: 10px;
+  background: rgba(0,0,0,0.1);
+  border-radius: 50%;
+  margin: -5px auto 0;
+}
+
+/* Timeline */
+.timeline-section {
+  grid-column: span 1;
+  background: rgba(40,40,40,40);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+@media (min-width: 1024px) {
+  .timeline-section {
+    grid-column: span 2;
+  }
+}
+
+.timeline {
+  margin-top: 1rem;
+}
+
+.timeline-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 1rem 0;
+  border-left: 3px solid #e0e0e0;
+  margin-left: 1rem;
+  position: relative;
+}
+
+.timeline-item:last-child {
+  border-left-style: dashed;
+}
+
+.timeline-icon {
+  background: white;
+  border: 3px solid #667eea;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: -21.5px;
+  background: white;
+  font-size: 1.2rem;
+}
+
+.timeline-content {
+  margin-left: 2.5rem;
+}
+
+.timeline-time {
+  font-weight: bold;
+  color: #667eea;
+  margin-bottom: 0.25rem;
+}
+
+.timeline-event {
+  color: #ffffff;
+}
+
+/* Footer Actions */
+.track-footer {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+}
+
+.action-btn {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.primary {
+  background: #4CAF50;
+  color: white;
+}
+
+.primary:hover {
+  background: #45a049;
+  transform: translateY(-2px);
+}
+
+.secondary {
+  background: #2196F3;
+  color: white;
+}
+
+.secondary:hover {
+  background: #1976D2;
+  transform: translateY(-2px);
+}
+
+.outline {
+  background: rgb(249, 202, 71);
+  color: white;
+}
+
+.outline:hover {
+  background: #ecc93a;
+  transform: translateY(-2px);
+}

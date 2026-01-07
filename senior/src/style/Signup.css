@@ -1,0 +1,350 @@
+/* Signup.css - Complete updated file */
+
+.signup-page, .login-page {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  font-family: 'Arial', sans-serif;
+  overflow: hidden;
+}
+
+.signup-page .bg-video, .login-page .bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1; /* behind overlay */
+  filter: brightness(0.6);
+}
+
+.signup-page .overlay, .login-page .overlay {
+  position: relative;
+  z-index: 1; /* above video */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: auto;
+  padding: 2rem;
+}
+
+.signup-card, .login-card {
+  background: rgba(20, 20, 20, 0.85);
+  padding: 3rem 2rem;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 400px;
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  z-index: 2; /* ensure form is above overlay */
+}
+
+.signup-card h2, .login-card h2 {
+  margin-bottom: 1.5rem;
+  color: #646cff;
+}
+
+.signup-card form, .login-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.signup-card label, .login-card label {
+  text-align: left;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  color: #ccc;
+}
+
+.signup-card input, .login-card input {
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  border: none;
+  font-size: 14px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.signup-card input:focus, .login-card input:focus {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 10px rgba(100, 108, 255, 0.5);
+}
+
+.signup-card button, .login-card button {
+  padding: 0.75rem;
+  border-radius: 10px;
+  border: none;
+  background: #646cff;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 16px;
+}
+
+.signup-card button:hover:not(:disabled), .login-card button:hover:not(:disabled) {
+  background: #4f56d3;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(100, 108, 255, 0.5);
+}
+
+.signup-card button:disabled, .login-card button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.button-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.signup-link, .login-link-text {
+  margin-top: 1rem;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.signup-link span, .login-link {
+  color: #646cff;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.signup-link span:hover, .login-link:hover {
+  color: #8a91ff;
+  text-decoration: underline;
+}
+
+.resend-otp-btn {
+  background: transparent !important;
+  border: none !important;
+  color: #646cff !important;
+  cursor: pointer !important;
+  font-size: 14px !important;
+  padding: 0 !important;
+  margin-top: 10px !important;
+  text-decoration: underline;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.resend-otp-btn:hover {
+  opacity: 1;
+}
+
+.resend-otp-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Notification Styles */
+.notification-popup {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  min-width: 300px;
+  max-width: 400px;
+  padding: 15px 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  animation: slideIn 0.3s ease-out;
+  color: white;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.notification-popup.error {
+  background: rgba(244, 67, 54, 0.9);
+  border-left: 4px solid #d32f2f;
+}
+
+.notification-popup.success {
+  background: rgba(76, 175, 80, 0.9);
+  border-left: 4px solid #388e3c;
+}
+
+.notification-popup.warning {
+  background: rgba(255, 152, 0, 0.9);
+  border-left: 4px solid #f57c00;
+}
+
+.notification-popup.info {
+  background: rgba(33, 150, 243, 0.9);
+  border-left: 4px solid #1976d2;
+}
+
+.notification-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.notification-message {
+  flex: 1;
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.notification-close {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 2px 8px;
+  margin-left: 15px;
+  border-radius: 50%;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+  line-height: 1;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notification-close:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.notification-popup.closing {
+  animation: slideOut 0.3s ease-in forwards;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .signup-page, .login-page {
+    padding: 1rem;
+  }
+  
+  .signup-card, .login-card {
+    padding: 2rem 1.5rem;
+    margin: 1rem;
+  }
+  
+  .notification-popup {
+    left: 20px;
+    right: 20px;
+    min-width: auto;
+    max-width: none;
+    top: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .signup-card h2, .login-card h2 {
+    font-size: 1.5rem;
+  }
+  
+  .signup-card, .login-card {
+    padding: 1.5rem 1rem;
+  }
+  
+  .notification-popup {
+    padding: 12px 16px;
+  }
+}
+
+/* Input disabled state */
+.signup-card input:disabled, .login-card input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Focus styles for accessibility */
+.signup-card input:focus-visible, .login-card input:focus-visible {
+  outline: 2px solid #646cff;
+  outline-offset: 2px;
+}
+
+.notification-close:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
+
+.login-link:focus-visible {
+  outline: 2px solid #646cff;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* OTP input specific styles */
+.otp-input {
+  letter-spacing: 3px;
+  font-size: 18px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Error message styling */
+.error-message {
+  color: #ff6b6b;
+  background-color: rgba(255, 107, 107, 0.1);
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border-left: 4px solid #ff6b6b;
+  text-align: left;
+  font-size: 14px;
+}
+
+/* Success message for OTP verification */
+.otp-success-message {
+  color: #4caf50;
+  background-color: rgba(76, 175, 80, 0.1);
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border-left: 4px solid #4caf50;
+  text-align: center;
+}

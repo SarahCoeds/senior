@@ -1,0 +1,94 @@
+{
+  "game::battlefield 6": {
+    "name": "battlefield 6",
+    "kind": "game",
+    "min_ram": 16,
+    "recommended_ram": 16,
+    "cpu_cores": 8,
+    "gpu_vram": 8,
+    "notes": "Parsed from Steam PC requirements.",
+    "source_url": "https://store.steampowered.com/app/2807960/",
+    "fetched_at_utc": 1766837400
+  },
+  "game::gta 5": {
+    "name": "gta 5",
+    "kind": "game",
+    "min_ram": 8,
+    "recommended_ram": 16,
+    "cpu_cores": 6,
+    "gpu_vram": 6,
+    "notes": "Offline estimate for a typical modern game (no web lookup available).",
+    "source_url": "",
+    "fetched_at_utc": 1766837998
+  },
+  "game::the last of us 2": {
+    "name": "the last of us 2",
+    "kind": "game",
+    "min_ram": 8,
+    "recommended_ram": 16,
+    "cpu_cores": 6,
+    "gpu_vram": 6,
+    "notes": "Offline estimate for a typical modern game (no web lookup available).",
+    "source_url": "",
+    "fetched_at_utc": 1766839324
+  },
+  "game::call of duty": {
+    "name": "call of duty",
+    "kind": "game",
+    "min_ram": 8,
+    "recommended_ram": 12,
+    "cpu_cores": 8,
+    "gpu_vram": 6,
+    "notes": "Parsed from Steam system requirements (best-effort).",
+    "source_url": "https://store.steampowered.com/app/1938090/",
+    "fetched_at_utc": 1767630384
+  },
+  "game::i want valorants requirements": {
+    "name": "i want valorants requirements",
+    "kind": "game",
+    "min_ram": 8,
+    "recommended_ram": 16,
+    "cpu_cores": 4,
+    "gpu_vram": 2,
+    "storage_type": "SSD",
+    "notes": "Offline estimate (Valorant generally runs on modest hardware).",
+    "source_url": "",
+    "fetched_at_utc": 1767694601
+  },
+  "game::what are valorants requirements": {
+    "name": "what are valorants requirements",
+    "kind": "game",
+    "min_ram": 8,
+    "recommended_ram": 16,
+    "cpu_cores": 4,
+    "gpu_vram": 2,
+    "storage_type": "SSD",
+    "notes": "Offline estimate (Valorant generally runs on modest hardware).",
+    "source_url": "",
+    "fetched_at_utc": 1767697362
+  },
+  "game::what are matlabs requirements": {
+    "name": "what are matlabs requirements",
+    "kind": "game",
+    "min_ram": 16,
+    "recommended_ram": 32,
+    "cpu_cores": 8,
+    "gpu_vram": 0,
+    "storage_type": "SSD",
+    "notes": "Offline estimate for MATLAB: CPU/RAM heavy; GPU depends on toolboxes.",
+    "source_url": "",
+    "fetched_at_utc": 1767697372
+  },
+  "game::i need valorants requirements": {
+    "name": "i need valorants requirements",
+    "kind": "game",
+    "min_ram": 8,
+    "recommended_ram": 16,
+    "cpu_cores": 4,
+    "gpu_vram": 2,
+    "storage_type": "SSD",
+    "notes": "Offline estimate (Valorant generally runs on modest hardware).",
+    "source_url": "",
+    "fetched_at_utc": 1767700073
+  }
+}

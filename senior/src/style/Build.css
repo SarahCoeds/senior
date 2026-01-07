@@ -1,0 +1,18 @@
+.build-section {
+  padding: 4rem 0;
+  min-height: calc(100vh - 120px);
+  background: #f5f5f5;
+}
+
+.build-section h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #1a1a1a;
+}
+
+.build-section > .container > p {
+  text-align: center;
+  margin-bottom: 3rem;
+  color: #666;
+  font-size: 1.1rem;
+}
