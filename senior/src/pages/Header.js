@@ -69,7 +69,6 @@ const Header = () => {
 
               {showDropdown && (
                 <div className="dropdown-menu">
-                  {/* ✅ Admin link only for admins */}
                   {user?.isAdmin && (
                     <button onClick={goAdmin}>Admin Dashboard</button>
                   )}

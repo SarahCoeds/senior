@@ -5,7 +5,7 @@
   overflow: hidden;
 }
 
-/* Background: dark + colorful ambient glow */
+
 .about-bg {
   position: absolute;
   inset: 0;
@@ -44,7 +44,6 @@
   background: radial-gradient(circle at center, #06b6d4, transparent 60%);
 }
 
-/* Container */
 .about-container {
   position: relative;
   max-width: 1100px;
@@ -53,7 +52,7 @@
   color: #e5e7eb;
 }
 
-/* Hero */
+
 .about-hero {
   text-align: left;
   margin-bottom: 26px;
@@ -116,7 +115,7 @@
   color: #ffffff;
 }
 
-/* Cards layout */
+
 .about-content {
   margin-top: 18px;
   display: grid;
@@ -134,7 +133,7 @@
   overflow: hidden;
 }
 
-/* Accent top border */
+
 .about-card::before {
   content: "";
   position: absolute;
@@ -212,7 +211,7 @@
   line-height: 1.6;
 }
 
-/* Footer */
+
 .about-footer {
   margin-top: 14px;
 }
@@ -238,7 +237,7 @@
   font-size: 14px;
 }
 
-/* Responsive */
+
 @media (max-width: 900px) {
   .about-hero-cards {
     grid-template-columns: 1fr;

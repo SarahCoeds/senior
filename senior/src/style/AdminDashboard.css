@@ -1,4 +1,4 @@
-/* src/pages/AdminDashboard.css */
+
 
 .ad-loading {
   padding: 24px;
@@ -309,7 +309,7 @@
   color: #6b7280;
 }
 
-/* Modals */
+
 .ad-modalOverlay {
   position: fixed;
   inset: 0;

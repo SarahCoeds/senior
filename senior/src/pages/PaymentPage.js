@@ -84,7 +84,7 @@ const PaymentPage = () => {
     setIsProcessing(true);
 
     try {
-      // Place the order in backend
+
       const res = await fetch("http://localhost:5000/api/orders", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -113,7 +113,7 @@ const PaymentPage = () => {
 
       const orderId = data.orderId;
 
-      // Clear cart & local storage
+
       clearCart();
       localStorage.removeItem("delivery");
 
@@ -123,7 +123,7 @@ const PaymentPage = () => {
         if (orderId) {
           navigate(`/track/${orderId}`);
         } else {
-          // fallback if backend didn't return orderId for some reason
+
           navigate("/products");
         }
       }, 1200);

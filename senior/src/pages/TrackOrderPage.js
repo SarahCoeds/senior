@@ -171,7 +171,6 @@ const TrackOrderPage = () => {
     }, 5000);
 
     return () => clearInterval(interval);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
   const currentStatus = statusConfig[order.status] || statusConfig.loading;
@@ -225,7 +224,6 @@ Thank you for your purchase!
           </p>
         ) : null}
 
-        {/* ✅ FIX #1: Order Total should be BLACK because header bg is white */}
         <p style={{ color: "black" }}>
           💰 Order Total: <strong>${Number(order.total).toFixed(2)}</strong>
         </p>
@@ -246,7 +244,6 @@ Thank you for your purchase!
 
         <h2 style={{ color: currentStatus.color }}>{currentStatus.title}</h2>
 
-        {/* ✅ FIX #2A: message text inside dark card should be WHITE */}
         <p style={{ color: "white", fontSize: "1.05rem" }}>{currentStatus.description}</p>
 
         <div style={{ marginTop: 14 }}>
@@ -288,7 +285,6 @@ Thank you for your purchase!
                     {s.icon} <span style={{ fontWeight: 700 }}>{s.label}</span>
                   </div>
 
-                  {/* keep this readable too */}
                   <div style={{ fontSize: 12, color: "white" }}>
                     {done ? (idx === stepIndex ? "Current" : "Completed") : "Pending"}
                   </div>
@@ -298,7 +294,6 @@ Thank you for your purchase!
           </div>
         </div>
 
-        {/* ✅ FIX #2B: these tracking details should be WHITE (not grey) */}
         <div style={{ marginTop: 16, color: "white", fontWeight: 600 }}>
           <p style={{ color: "white" }}>📅 Estimated Delivery: {order.estimatedDelivery}</p>
           <p style={{ color: "white" }}>📍 Current Location: {order.location}</p>

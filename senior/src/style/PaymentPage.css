@@ -1,4 +1,4 @@
-/* PaymentPage.css - Complete updated file */
+
 
 .payment-page {
   min-height: 100vh;
@@ -410,7 +410,6 @@
   }
 }
 
-/* Notification Styles */
 .notification-popup {
   position: fixed;
   top: 20px;
@@ -511,7 +510,7 @@
   animation: slideOut 0.3s ease-in forwards;
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
   .payment-page {
     padding: 20px 16px;
@@ -569,7 +568,7 @@
   }
 }
 
-/* Loading state styles */
+
 .place-order-btn:disabled {
   opacity: 0.6;
   cursor: not-allowed;
@@ -582,7 +581,7 @@
   cursor: not-allowed;
 }
 
-/* Focus styles for accessibility */
+
 .form-group input:focus-visible {
   outline: 2px solid #667eea;
   outline-offset: 2px;

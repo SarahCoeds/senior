@@ -75,7 +75,7 @@
   display: inline-block;
 }
 
-/* Animations */
+
 @keyframes pulse {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.1); }
@@ -131,7 +131,7 @@
   text-align: left;
 }
 
-/* Map Section */
+
 .map-section {
   background: rgba(40,40,40,40);
   border-radius: 20px;
@@ -212,7 +212,7 @@
   animation: pulse 2s infinite;
 }
 
-/* Vehicle Animation */
+
 .vehicle-container {
   position: absolute;
   top: -25px;
@@ -233,7 +233,7 @@
   margin: -5px auto 0;
 }
 
-/* Timeline */
+
 .timeline-section {
   grid-column: span 1;
   background: rgba(40,40,40,40);
@@ -294,7 +294,7 @@
   color: #ffffff;
 }
 
-/* Footer Actions */
+
 .track-footer {
   display: flex;
   gap: 1rem;

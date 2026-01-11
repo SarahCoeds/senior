@@ -86,7 +86,6 @@
   color: #646cff;
 }
 
-/* Put buttons next to each other nicely */
 .cart-actions {
   display: flex;
   justify-content: flex-end;
@@ -127,7 +126,6 @@
   box-shadow: 0 6px 15px rgba(255, 92, 92, 0.5);
 }
 
-/* Notification top-right */
 .notification-stack {
   position: fixed;
   top: 20px;
@@ -138,7 +136,7 @@
   gap: 12px;
 }
 
-/* Wrapper for notification + buttons */
+
 .notification-with-action {
   display: flex;
   flex-direction: column;
@@ -146,14 +144,14 @@
   align-items: flex-end;
 }
 
-/* Confirm/Cancel row */
+
 .notif-actions {
   display: flex;
   gap: 10px;
   justify-content: flex-end;
 }
 
-/* Buttons below notification */
+
 .notif-action-btn {
   padding: 10px 14px;
   border-radius: 10px;
@@ -170,7 +168,7 @@
   opacity: 1;
 }
 
-/* Red confirm button */
+
 .notif-action-btn.danger {
   background: rgba(255, 92, 92, 0.8);
   border-color: rgba(255, 92, 92, 0.45);

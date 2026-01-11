@@ -134,14 +134,13 @@ def resolve_unknown_requirements(
     key_new = _cache_key(name, kind)
     key_old_plain = _norm(name)  
 
-    # cache hit (new)
+
     if key_new in cache:
         try:
             return RequirementRecord(**cache[key_new])
         except Exception:
             pass
 
-    # cache hit (old)
     if key_old_plain in cache:
         try:
             rec = RequirementRecord(**cache[key_old_plain])
@@ -171,7 +170,6 @@ def resolve_unknown_requirements(
         base.notes = "Offline estimate (balanced defaults)."
         return base
 
-    # Web lookup
     if allow_web and kind == "game":
         appid = _steam_store_search(name)
         if appid:

@@ -2,14 +2,14 @@ const express = require("express");
 const db = require("../config/db");
 const router = express.Router();
 
-// Helpers
+
 const ALLOWED_STATUSES = ["processing", "packaged", "shipped", "out-for-delivery", "delivered"];
 
 function normalizeStatus(status) {
   if (!status) return "processing";
   const s = String(status).toLowerCase();
 
-  // If older values exist in DB, map them:
+
   if (s === "pending") return "processing";
   if (s === "on_the_way") return "shipped";
   if (s === "outfordelivery") return "out-for-delivery";
@@ -17,9 +17,6 @@ function normalizeStatus(status) {
   return ALLOWED_STATUSES.includes(s) ? s : "processing";
 }
 
-/**
- * POST /api/orders - create a new order
- */
 router.post("/", (req, res) => {
   const { userId, cart, delivery, paymentMethod } = req.body;
 
@@ -32,10 +29,9 @@ router.post("/", (req, res) => {
     0
   );
 
-  // Use UI-compatible status for demo tracking
+
   const initialStatus = "processing";
 
-  // 1) Create order
   db.query(
     "INSERT INTO orders (user_id, total, status) VALUES (?, ?, ?)",
     [userId, total, initialStatus],
@@ -47,7 +43,7 @@ router.post("/", (req, res) => {
 
       const orderId = orderResult.insertId;
 
-      // 2) Insert order items
+
       const itemsQuery = `
         INSERT INTO order_items 
         (order_id, user_id, product_id, quantity, price) 
@@ -67,7 +63,7 @@ router.post("/", (req, res) => {
           return res.status(500).json({ message: "Failed to save items" });
         }
 
-        // 3) Save delivery details
+
         const { fullName, phone, address, city, zipCode, notes, email } = delivery;
 
         db.query(
@@ -83,7 +79,6 @@ router.post("/", (req, res) => {
               return res.status(500).json({ message: "Failed to save delivery info" });
             }
 
-            // 4) Send email via orderMailer route (best-effort)
             try {
               const axios = require("axios");
               axios.post("http://localhost:5000/api/orders/send-order-email", {
@@ -112,10 +107,7 @@ router.post("/", (req, res) => {
   );
 });
 
-/**
- * GET /api/orders/:id - fetch order for tracking
- * Returns: id, userId, total, status, created, delivery{}
- */
+
 router.get("/:id", (req, res) => {
   const orderId = req.params.id;
 
@@ -141,7 +133,7 @@ router.get("/:id", (req, res) => {
     if (err) {
       console.error("Get Order Error:", err);
 
-      // Fallback: some DBs use `created` instead of `created_at`
+
       const sqlFallback = `
         SELECT 
           o.id,
@@ -211,10 +203,7 @@ router.get("/:id", (req, res) => {
   });
 });
 
-/**
- * PATCH /api/orders/:id/status - update tracking status (demo-friendly)
- * Body: { status: "packaged" | "shipped" | "out-for-delivery" | "delivered" | "processing" }
- */
+
 router.patch("/:id/status", (req, res) => {
   const orderId = req.params.id;
   const { status } = req.body;

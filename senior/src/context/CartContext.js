@@ -8,7 +8,7 @@ export const CartProvider = ({ children }) => {
   const { user } = useAuth();
   const [cart, setCart] = useState([]);
 
-  // Load cart from localStorage when user changes
+
   useEffect(() => {
     if (user) {
       const savedCart = localStorage.getItem(`cart_${user.id}`);
@@ -18,7 +18,6 @@ export const CartProvider = ({ children }) => {
     }
   }, [user]);
 
-  // Save cart to localStorage whenever it changes
   useEffect(() => {
     if (user) {
       localStorage.setItem(`cart_${user.id}`, JSON.stringify(cart));

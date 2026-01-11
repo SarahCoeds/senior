@@ -1,4 +1,4 @@
-/* Login.css - Complete updated file */
+
 
 .login-page {
   position: relative;
@@ -107,7 +107,7 @@
   text-decoration: underline;
 }
 
-/* Notification Styles - Added to match your theme */
+
 .notification-popup {
   position: fixed;
   top: 20px;
@@ -204,12 +204,12 @@
   }
 }
 
-/* Optional: Add slide-out animation when closing */
+
 .notification-popup.closing {
   animation: slideOut 0.3s ease-in forwards;
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
   .login-card {
     margin: 1rem;
@@ -225,7 +225,7 @@
   }
 }
 
-/* Loading state styles */
+
 .login-card button:disabled {
   background: #4a4f9e;
   cursor: not-allowed;
@@ -245,7 +245,7 @@
   cursor: not-allowed;
 }
 
-/* Focus styles for accessibility */
+
 .login-card input:focus-visible {
   outline: 2px solid #646cff;
   outline-offset: 2px;
@@ -256,7 +256,7 @@
   outline-offset: 2px;
 }
 
-/* Hover effect for the signup link */
+
 .signup-link span {
   transition: all 0.3s ease;
 }

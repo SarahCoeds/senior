@@ -3,7 +3,7 @@ const db = require("../config/db");
 
 const JWT_SECRET = process.env.JWT_SECRET;
 
-// 1) Verifies JWT and attaches req.user
+
 function requireAuth(req, res, next) {
   const header = req.headers.authorization || "";
   const token = header.startsWith("Bearer ") ? header.slice(7) : null;
@@ -13,7 +13,7 @@ function requireAuth(req, res, next) {
   try {
     const decoded = jwt.verify(token, JWT_SECRET);
 
-    // Ensure user still exists and is verified
+
     db.query(
       "SELECT id, name, email, is_verified FROM users WHERE id = ? LIMIT 1",
       [decoded.id],
@@ -33,7 +33,7 @@ function requireAuth(req, res, next) {
   }
 }
 
-// 2) Checks admin emails stored in .env
+
 function requireAdmin(req, res, next) {
   const adminEmails = (process.env.ADMIN_EMAILS || "")
     .split(",")

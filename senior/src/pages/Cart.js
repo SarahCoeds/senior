@@ -8,7 +8,6 @@ const CartPage = () => {
   const navigate = useNavigate();
   const { cart, removeFromCart, updateQuantity, clearCart } = useCart();
 
-  // notification: { type, message, actionLabel?, onAction? }
   const [notification, setNotification] = useState(null);
 
   const total = useMemo(() => {
@@ -21,7 +20,6 @@ const CartPage = () => {
   const handleClearCart = () => {
     if (cart.length === 0) return;
 
-    // Notification-based confirmation (no alert/confirm)
     setNotification({
       type: "warning",
       message: "Are you sure you want to clear your cart?",

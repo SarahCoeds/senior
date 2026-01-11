@@ -1,4 +1,3 @@
-// src/pages/AdminDashboard.jsx
 import React, { useEffect, useMemo, useState } from "react";
 import "../style/AdminDashboard.css";
 import { useNotify } from "../components/NotificationProvider";
@@ -40,7 +39,7 @@ export default function AdminDashboard() {
   const [loading, setLoading] = useState(true);
   const [me, setMe] = useState(null);
 
-  const [active, setActive] = useState("overview"); // overview | orders | products | users
+  const [active, setActive] = useState("overview"); 
   const [stats, setStats] = useState(null);
 
   const [products, setProducts] = useState([]);
@@ -52,7 +51,7 @@ export default function AdminDashboard() {
   const [users, setUsers] = useState([]);
   const [userQuery, setUserQuery] = useState("");
 
-  // Product modal
+
   const [productModalOpen, setProductModalOpen] = useState(false);
   const [editingProduct, setEditingProduct] = useState(null);
   const [productForm, setProductForm] = useState({
@@ -63,7 +62,7 @@ export default function AdminDashboard() {
     description: "",
   });
 
-  // User modal
+
   const [userModalOpen, setUserModalOpen] = useState(false);
   const [userForm, setUserForm] = useState({
     name: "",
@@ -84,7 +83,6 @@ export default function AdminDashboard() {
     onConfirm: null,
   });
 
-  // ---------- Filters ----------
   const filteredProducts = useMemo(() => {
     const q = productQuery.trim().toLowerCase();
     if (!q) return products;
@@ -117,7 +115,6 @@ export default function AdminDashboard() {
     });
   }, [users, userQuery]);
 
-  // ---------- Loaders ----------
   async function refreshStats() {
     const s = await api("/api/admin/stats");
     setStats(s);
@@ -144,7 +141,6 @@ export default function AdminDashboard() {
     notify.success("Dashboard refreshed.");
   }
 
-  // ---------- Auth gate ----------
   useEffect(() => {
     const run = async () => {
       try {
@@ -167,7 +163,6 @@ export default function AdminDashboard() {
         await Promise.all([refreshStats(), loadProducts(), loadOrders(), loadUsers()]);
       } catch (e) {
         notify.error(e.message || "Auth failed.");
-        // redirect after a short delay feels better than hard-cut
         setTimeout(() => {
           window.location.href = "/";
         }, 600);
@@ -176,10 +171,8 @@ export default function AdminDashboard() {
       }
     };
     run();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // ---------- Product Modal ----------
   function openAddProduct() {
     setEditingProduct(null);
     setProductForm({
@@ -267,7 +260,6 @@ export default function AdminDashboard() {
     });
   }
 
-  // ---------- Orders ----------
   async function updateOrderStatus(orderId, nextStatus) {
     try {
       setOrderUpdatingId(orderId);
@@ -286,7 +278,6 @@ export default function AdminDashboard() {
     }
   }
 
-  // ---------- Users ----------
   function openAddUser() {
     setUserForm({
       name: "",
@@ -356,7 +347,6 @@ export default function AdminDashboard() {
     });
   }
 
-  // ---------- UI ----------
   if (loading) return <div className="ad-loading">Loading admin dashboard…</div>;
 
   const recentOrders = (stats?.recentOrders || []).slice(0, 5);

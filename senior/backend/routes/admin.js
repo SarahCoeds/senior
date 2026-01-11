@@ -5,7 +5,7 @@ const { requireAuth, requireAdmin } = require("../middleware/auth");
 
 const router = express.Router();
 
-// Small helper: run a query and return a safe default if it fails
+
 function querySafe(sql, params = [], fallbackValue, cb) {
   db.query(sql, params, (err, results) => {
     if (err) {
@@ -20,10 +20,7 @@ function querySafe(sql, params = [], fallbackValue, cb) {
   });
 }
 
-/**
- * GET /api/admin/stats (admin)
- * Returns totals for products, orders, users + recent items.
- */
+
 router.get("/stats", requireAuth, requireAdmin, (req, res) => {
   const stats = {
     totalProducts: 0,
@@ -55,9 +52,6 @@ router.get("/stats", requireAuth, requireAdmin, (req, res) => {
   });
 });
 
-/**
- * GET /api/admin/users (admin)
- */
 router.get("/users", requireAuth, requireAdmin, (req, res) => {
   db.query(
     "SELECT id, name, email, is_verified, created_at, updated_at FROM users ORDER BY id DESC",
@@ -71,12 +65,6 @@ router.get("/users", requireAuth, requireAdmin, (req, res) => {
   );
 });
 
-/**
- * POST /api/admin/users (admin)
- * Create user from admin dashboard.
- * Requires: name, email, password
- * Optional: is_verified (default 1 for demo)
- */
 router.post("/users", requireAuth, requireAdmin, async (req, res) => {
   try {
     const { name, email, password, is_verified } = req.body;
@@ -85,7 +73,7 @@ router.post("/users", requireAuth, requireAdmin, async (req, res) => {
       return res.status(400).json({ message: "name, email, password required" });
     }
 
-    // prevent duplicates
+
     db.query("SELECT id FROM users WHERE email = ?", [email], async (checkErr, rows) => {
       if (checkErr) {
         console.error("ADMIN CREATE USER CHECK ERROR:", checkErr);
@@ -97,7 +85,7 @@ router.post("/users", requireAuth, requireAdmin, async (req, res) => {
 
       const hashedPassword = await bcrypt.hash(String(password), 10);
 
-      // For admin-created users, we typically mark verified = 1 so they can login immediately
+
       const verified = is_verified === 0 ? 0 : 1;
 
       db.query(
@@ -118,13 +106,11 @@ router.post("/users", requireAuth, requireAdmin, async (req, res) => {
   }
 });
 
-/**
- * DELETE /api/admin/users/:id (admin)
- */
+
 router.delete("/users/:id", requireAuth, requireAdmin, (req, res) => {
   const id = req.params.id;
 
-  // Safety: don't let admin delete themselves (optional but smart for demo)
+
   if (String(req.user?.id) === String(id)) {
     return res.status(400).json({ message: "You cannot delete your own account." });
   }
@@ -139,9 +125,8 @@ router.delete("/users/:id", requireAuth, requireAdmin, (req, res) => {
   });
 });
 
-/**
- * GET /api/admin/orders (admin)
- */
+
+
 router.get("/orders", requireAuth, requireAdmin, (req, res) => {
   db.query(
     "SELECT id, user_id, total, status, created FROM orders ORDER BY id DESC",

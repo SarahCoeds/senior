@@ -52,11 +52,11 @@ const LoginPage = () => {
         return;
       }
 
-      // ✅ Login successful
+
       login(data.user, data.token);
       displayNotification("Login successful! Redirecting...", "success");
 
-      // ✅ ADMIN → /admin, normal → /ai
+
       setTimeout(() => {
         if (data.user?.isAdmin) navigate("/admin");
         else navigate("/ai");

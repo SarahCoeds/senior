@@ -17,7 +17,6 @@ const isAdminEmail = (email) => {
 
 
 
-/* ======================= SIGN UP ======================= */
 router.post("/signup", async (req, res) => {
   const { name, email, password } = req.body;
 
@@ -25,7 +24,7 @@ router.post("/signup", async (req, res) => {
     return res.status(400).json({ message: "All fields required" });
 
   try {
-    // Check if user already exists
+
     db.query(
       "SELECT * FROM users WHERE email = ?",
       [email],
@@ -35,7 +34,7 @@ router.post("/signup", async (req, res) => {
           return res.status(500).json({ message: "Database error" });
         }
 
-        // If user exists and is verified, tell them to login
+
         if (results.length > 0) {
           const existingUser = results[0];
           
@@ -45,7 +44,7 @@ router.post("/signup", async (req, res) => {
               redirectToLogin: true 
             });
           } else {
-            // User exists but not verified - send new OTP
+
             const otp = Math.floor(100000 + Math.random() * 900000).toString();
             const hashedPassword = await bcrypt.hash(password, 10);
             
@@ -58,7 +57,7 @@ router.post("/signup", async (req, res) => {
                   return res.status(500).json({ message: "Database update error" });
                 }
                 
-                // Send OTP email
+
                 try {
                   await transporter.sendMail({
                     to: email,
@@ -79,7 +78,7 @@ router.post("/signup", async (req, res) => {
             );
           }
         } else {
-          // New user - create account
+
           const otp = Math.floor(100000 + Math.random() * 900000).toString();
           const hashedPassword = await bcrypt.hash(password, 10);
           
@@ -92,7 +91,7 @@ router.post("/signup", async (req, res) => {
                 return res.status(500).json({ message: "Failed to create user account" });
               }
               
-              // Send OTP email
+
               try {
                 await transporter.sendMail({
                   to: email,
@@ -119,7 +118,7 @@ router.post("/signup", async (req, res) => {
     res.status(500).json({ message: "Server error during signup" });
   }
 });
-/* ======================= RESEND OTP ======================= */
+
 router.post("/resend-otp", async (req, res) => {
   const { email } = req.body;
 
@@ -151,7 +150,7 @@ router.post("/resend-otp", async (req, res) => {
   );
 });
 
-/* ======================= VERIFY OTP ======================= */
+
 router.post("/verify-otp", (req, res) => {
   const { email, otp } = req.body;
 
@@ -174,7 +173,7 @@ router.post("/verify-otp", (req, res) => {
 
       const user = results[0];
 
-      // Update user to verified and clear OTP
+
       db.query(
         "UPDATE users SET is_verified = 1, otp = NULL WHERE id = ?",
         [user.id],
@@ -184,7 +183,7 @@ router.post("/verify-otp", (req, res) => {
             return res.status(500).json({ message: "Failed to verify user" });
           }
 
-          // Generate token for auto-login after verification
+
           const token = jwt.sign(
             { id: user.id, email: user.email },
             JWT_SECRET,
@@ -207,7 +206,7 @@ router.post("/verify-otp", (req, res) => {
   );
 });
 
-/* ======================= LOGIN ======================= */
+
 router.post("/login", (req, res) => {
   const { email, password } = req.body;
 
@@ -257,7 +256,7 @@ router.post("/login", (req, res) => {
 });
 
 
-/* ======================= VALIDATE TOKEN ======================= */
+
 router.post("/validate-token", (req, res) => {
   const { token } = req.body;
 
@@ -268,7 +267,7 @@ router.post("/validate-token", (req, res) => {
   try {
     const decoded = jwt.verify(token, JWT_SECRET);
     
-    // Verify user still exists in database and is verified
+
     db.query(
       "SELECT id, name, email FROM users WHERE id = ? AND is_verified = 1",
       [decoded.id],

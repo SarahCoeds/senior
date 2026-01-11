@@ -11,7 +11,7 @@ const SignupPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [step, setStep] = useState("signup"); // 'signup' | 'verify'
+  const [step, setStep] = useState("signup"); 
   const [otp, setOtp] = useState("");
   const [loading, setLoading] = useState(false);
   const [signupEmail, setSignupEmail] = useState("");
@@ -104,11 +104,11 @@ const SignupPage = () => {
         return;
       }
 
-      // ✅ Auto-login after successful verification
+
       login(data.user, data.token);
       displayNotification("Email verified successfully! Welcome to Kindred PCs.", "success");
 
-      // ✅ ADMIN → /admin, normal → /ai
+
       setTimeout(() => {
         if (data.user?.isAdmin) navigate("/admin");
         else navigate("/ai");

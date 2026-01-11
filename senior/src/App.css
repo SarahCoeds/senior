@@ -1,4 +1,4 @@
-/* App.css */
+
 * {
   margin: 0;
   padding: 0;
@@ -18,7 +18,7 @@ body {
   padding: 0 20px;
 }
 
-/* Header */
+
 .header {
   background-color: #4969a5;
   color: white;
@@ -77,12 +77,11 @@ body {
   background-color: #3aa8d0;
 }
 
-/* Main Content */
 .main-content {
   min-height: calc(100vh - 140px);
 }
 
-/* Hero Section */
+
 .hero {
   background: linear-gradient(135deg, #567bc0 0%, #567bc0 100%);
   color: white;
@@ -116,7 +115,7 @@ body {
   background-color: #3aa8d0;
 }
 
-/* Past Builds */
+
 .past-builds {
   padding: 4rem 0;
   background-color: white;
@@ -167,7 +166,7 @@ body {
   color: #666;
 }
 
-/* Partners */
+
 .partners {
   padding: 4rem 0;
   background-color: #f8f9fa;
@@ -195,7 +194,7 @@ body {
   color: #333;
 }
 
-/* Testimonials */
+
 .testimonials {
   padding: 4rem 0;
   background-color: white;
@@ -230,7 +229,7 @@ body {
   color: #4cc9f0;
 }
 
-/* Build Section */
+
 .build-section {
   padding: 4rem 0;
   background-color: #f8f9fa;
@@ -284,7 +283,7 @@ body {
   background-color: #3aa8d0;
 }
 
-/* AI Assistant */
+
 .ai-assistant {
   background-color: white;
   padding: 2rem;
@@ -335,7 +334,6 @@ body {
   color: #666;
 }
 
-/* About Section */
 .about-section {
   padding: 4rem 0;
   background-color: white;
@@ -374,7 +372,7 @@ body {
   margin-bottom: 0.5rem;
 }
 
-/* Footer */
+
 .footer {
   background-color: #567bc0;
   color: white;
@@ -382,7 +380,7 @@ body {
   text-align: center;
 }
 
-/* Responsive */
+
 @media (max-width: 768px) {
   .header .container {
     flex-direction: column;

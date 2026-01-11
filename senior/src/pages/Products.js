@@ -43,8 +43,6 @@ const ProductsPage = () => {
 
   const [minBound, setMinBound] = useState(0);
   const [maxBound, setMaxBound] = useState(5000);
-
-  // Read AI assistant deep-link params
   const [pendingOpenId, setPendingOpenId] = useState(null);
 
   useEffect(() => {
@@ -72,7 +70,7 @@ const ProductsPage = () => {
         setPriceMin(minP);
         setPriceMax(maxP);
 
-        // Auto-open modal if requested
+
         if (pendingOpenId != null) {
           const found = arr.find((p) => String(p.id) === String(pendingOpenId));
           if (found) {
@@ -83,7 +81,7 @@ const ProductsPage = () => {
         }
       })
       .catch((err) => console.error(err));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
   }, [pendingOpenId]);
 
   const categoryLabel = useMemo(() => {

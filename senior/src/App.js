@@ -22,20 +22,14 @@ import TrackOrderPage from "./pages/TrackOrderPage";
 import AdminDashboard from "./pages/AdminDashboard";
 import { useEffect } from "react";
 
-/**
- * OPTIONAL refresh behavior:
- * - If enabled: every full page refresh starts a new chat,
- *   but previous conversation remains in history.
- *
- * If you do NOT want this, delete this component entirely.
- */
+
 function RefreshBehavior() {
   const { startNewChatOnRefresh } = useChatStore();
 
   useEffect(() => {
-    // Comment this out if you want refresh to continue same conversation
+
     startNewChatOnRefresh();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
   }, []);
 
   return null;
@@ -47,7 +41,7 @@ function App() {
       <CartProvider>
         <NotificationProvider>
           <ChatStoreProvider>
-            {/* OPTIONAL: refresh behavior */}
+
             <RefreshBehavior />
 
             <Router>
@@ -56,7 +50,7 @@ function App() {
 
                 <div className="main-content">
                   <Routes>
-                    {/* Public Routes */}
+
                     <Route path="/" element={<Home />} />
                     <Route path="/about" element={<About />} />
                     <Route path="/products" element={<Products />} />
@@ -64,11 +58,8 @@ function App() {
                     <Route path="/login" element={<LoginPage />} />
                     <Route path="/signup" element={<SignupPage />} />
                     <Route path="/payment" element={<PaymentPage />} />
-
-                    {/* Track order (public or protected: your choice; leaving public) */}
                     <Route path="/track/:id" element={<TrackOrderPage />} />
 
-                    {/* Admin Route */}
                     <Route
                       path="/admin"
                       element={
@@ -78,7 +69,6 @@ function App() {
                       }
                     />
 
-                    {/* Protected Routes */}
                     <Route
                       path="/build"
                       element={
@@ -106,7 +96,6 @@ function App() {
                       }
                     />
 
-                    {/* Redirect any unknown routes to home */}
                     <Route path="*" element={<Navigate to="/" replace />} />
                   </Routes>
                 </div>

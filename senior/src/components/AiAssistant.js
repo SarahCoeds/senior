@@ -1,4 +1,3 @@
-// src/components/AiAssistant.jsx
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import "../style/AiAssistant.css";
 import { useChatStore } from "../context/ChatStore";
@@ -17,11 +16,10 @@ function bestMatchProduct(allProducts, queryName) {
   const qc = compact(queryName);
   if (!qn) return null;
 
-  // 1) exact name match
   let exact = allProducts.find((p) => norm(p.name) === qn);
   if (exact) return exact;
 
-  // 2) compact contains match
+
   let best = null;
   let bestScore = -1;
 
@@ -33,7 +31,7 @@ function bestMatchProduct(allProducts, queryName) {
     if (pn.includes(qn) || qn.includes(pn)) score += 5;
     if (pc.includes(qc) || qc.includes(pc)) score += 7;
 
-    // token overlap
+
     const qTokens = new Set(qn.split(/\s+/).filter(Boolean));
     const pTokens = new Set(pn.split(/\s+/).filter(Boolean));
     let overlap = 0;
@@ -46,7 +44,6 @@ function bestMatchProduct(allProducts, queryName) {
     }
   }
 
-  // require minimum confidence
   if (bestScore >= 6) return best;
   return null;
 }
@@ -92,10 +89,10 @@ export default function AiAssistant() {
 
   useEffect(() => {
     scrollToBottom();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
   }, [messages.length, isTyping]);
 
-  // Load products once for matching (so we can add-to-cart from assistant)
+
   useEffect(() => {
     let mounted = true;
     fetch(PRODUCTS_ENDPOINT)
@@ -144,7 +141,7 @@ export default function AiAssistant() {
         sender: "ai",
         time: formatTime(),
         createdAt: nowISO(),
-        payload: data || null, // store structured payload
+        payload: data || null, 
       };
 
       addMessage(aiMessage);
@@ -207,7 +204,7 @@ export default function AiAssistant() {
     let missing = 0;
 
         for (const it of items) {
-          if (it?.owned) continue; // skip already-owned parts
+          if (it?.owned) continue; 
 
           const match = bestMatchProduct(allProducts, it.product_match_query || it.name);
           if (match) {
@@ -238,7 +235,7 @@ export default function AiAssistant() {
   };
 
   const viewInProducts = (item) => {
-    // Best effort: navigate to products with search query + open modal if match found
+
     const match = bestMatchProduct(allProducts, item.product_match_query || item.name);
     const q = encodeURIComponent(item.product_match_query || item.name || "");
     if (match?.id != null) {
@@ -251,7 +248,6 @@ export default function AiAssistant() {
   return (
     <div className="ai-page">
       <div className="ai-shell">
-        {/* Left: History */}
         <aside className="ai-sidebar">
           <div className="ai-brand">
             <div className="ai-brand-title">PC Assistant</div>
@@ -300,7 +296,6 @@ export default function AiAssistant() {
           </div>
         </aside>
 
-        {/* Right: Chat */}
         <section className="ai-chat">
           <header className="ai-header">
             <div className="ai-header-left">
@@ -328,7 +323,6 @@ export default function AiAssistant() {
                   <div className="ai-bubble">
                     <div className="ai-text">{message.text}</div>
 
-                    {/* Build actions */}
                     {isAi && Array.isArray(buildItems) && buildItems.length > 0 && (
                       <div style={{ marginTop: 10 }}>
                         <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>

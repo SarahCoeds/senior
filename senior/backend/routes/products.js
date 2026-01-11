@@ -4,7 +4,6 @@ const { requireAuth, requireAdmin } = require("../middleware/auth");
 
 const router = express.Router();
 
-// GET all products (public)
 router.get("/", (req, res) => {
   const { category } = req.query;
 
@@ -26,7 +25,7 @@ router.get("/", (req, res) => {
   });
 });
 
-// POST create product (admin)
+
 router.post("/", requireAuth, requireAdmin, (req, res) => {
   const { name, price, category, image, description } = req.body;
 
@@ -58,7 +57,7 @@ router.post("/", requireAuth, requireAdmin, (req, res) => {
   );
 });
 
-// PUT update product (admin)
+
 router.put("/:id", requireAuth, requireAdmin, (req, res) => {
   const id = req.params.id;
 
@@ -89,7 +88,7 @@ router.put("/:id", requireAuth, requireAdmin, (req, res) => {
   });
 });
 
-// DELETE product (admin)
+
 router.delete("/:id", requireAuth, requireAdmin, (req, res) => {
   const id = req.params.id;
 

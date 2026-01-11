@@ -18,7 +18,6 @@ const CheckoutPage = () => {
       return alert("Please fill in all required fields");
     }
 
-    // Save delivery info in localStorage or context
     localStorage.setItem(
       "delivery",
       JSON.stringify({ fullName, phone, address, city, notes })

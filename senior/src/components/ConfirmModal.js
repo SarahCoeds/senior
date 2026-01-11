@@ -1,4 +1,4 @@
-// src/components/ConfirmModal.jsx
+
 import React from "react";
 import "../style/ConfirmModal.css";
 
@@ -9,7 +9,7 @@ export default function ConfirmModal({
   message = "Are you sure?",
   confirmText = "Confirm",
   cancelText = "Cancel",
-  tone = "danger", // danger | neutral
+  tone = "danger", 
   onConfirm,
   onCancel,
 }) {

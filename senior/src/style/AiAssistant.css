@@ -1,6 +1,4 @@
-/* src/style/AiAssistant.css */
 
-/* Match your navbar height */
 :root {
   --navbar-height: 75px;
 
@@ -19,7 +17,7 @@
   --a4: #a855f7;
 }
 
-/* Full page area under navbar */
+
 .ai-page {
   position: fixed;
   top: var(--navbar-height);
@@ -38,7 +36,7 @@
   color: var(--text);
 }
 
-/* Main layout */
+
 .ai-shell {
   height: 100%;
   display: grid;
@@ -47,7 +45,7 @@
   padding: 14px;
 }
 
-/* Sidebar */
+
 .ai-sidebar {
   position: relative;
   border-radius: 20px;
@@ -193,7 +191,7 @@
   cursor: not-allowed;
 }
 
-/* Chat panel */
+
 .ai-chat {
   border-radius: 20px;
   background: rgba(15, 23, 42, 0.72);
@@ -207,7 +205,7 @@
   min-width: 0;
 }
 
-/* Header */
+
 .ai-header {
   padding: 18px 20px;
   border-bottom: 1px solid rgba(148, 163, 184, 0.14);
@@ -259,7 +257,7 @@
   50% { transform: scale(0.92); opacity: 0.72; }
 }
 
-/* Messages */
+
 .ai-messages {
   flex: 1;
   min-height: 0;
@@ -344,7 +342,7 @@
   text-align: right;
 }
 
-/* Typing */
+
 .ai-bubble.typing {
   padding: 12px 14px;
 }
@@ -383,7 +381,7 @@
   font-size: 12px;
 }
 
-/* Input */
+
 .ai-inputbar {
   padding: 14px 16px;
   border-top: 1px solid rgba(148, 163, 184, 0.14);
@@ -441,7 +439,7 @@
   box-shadow: none;
 }
 
-/* Responsive */
+
 @media (max-width: 980px) {
   .ai-shell {
     grid-template-columns: 1fr;

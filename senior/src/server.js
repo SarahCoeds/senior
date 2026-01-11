@@ -10,7 +10,6 @@ const db =mysql.createConnection({
     database:"liu",
 });
 
-//create api to get all student records
 
 app.get("/students",(req, res)=>{
     const q=
@@ -22,12 +21,4 @@ app.get("/students",(req, res)=>{
         }
     })
 }
-
-//const express = require('express');
-//const app = express();
-
-//const port = 3000;
-
-//app.listen(port, ()=> {
-  //  console.log(`Server is running at http://localhost:${port}`);
-//});
+)

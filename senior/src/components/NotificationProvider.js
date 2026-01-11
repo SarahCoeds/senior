@@ -1,4 +1,3 @@
-// src/components/NotificationProvider.jsx
 import React, { createContext, useContext, useMemo, useState } from "react";
 import Notification from "./Notification";
 import "../style/NotificationStack.css";

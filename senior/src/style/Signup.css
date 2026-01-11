@@ -1,4 +1,4 @@
-/* Signup.css - Complete updated file */
+
 
 .signup-page, .login-page {
   position: relative;
@@ -15,13 +15,13 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: -1; /* behind overlay */
+  z-index: -1; 
   filter: brightness(0.6);
 }
 
 .signup-page .overlay, .login-page .overlay {
   position: relative;
-  z-index: 1; /* above video */
+  z-index: 1; 
   width: 100%;
   height: 100%;
   display: flex;
@@ -41,7 +41,7 @@
   text-align: center;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(5px);
-  z-index: 2; /* ensure form is above overlay */
+  z-index: 2; 
 }
 
 .signup-card h2, .login-card h2 {
@@ -160,7 +160,7 @@
   cursor: not-allowed;
 }
 
-/* Notification Styles */
+
 .notification-popup {
   position: fixed;
   top: 20px;
@@ -261,7 +261,6 @@
   animation: slideOut 0.3s ease-in forwards;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .signup-page, .login-page {
     padding: 1rem;
@@ -295,13 +294,13 @@
   }
 }
 
-/* Input disabled state */
+
 .signup-card input:disabled, .login-card input:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
 
-/* Focus styles for accessibility */
+
 .signup-card input:focus-visible, .login-card input:focus-visible {
   outline: 2px solid #646cff;
   outline-offset: 2px;
@@ -318,7 +317,7 @@
   border-radius: 2px;
 }
 
-/* OTP input specific styles */
+
 .otp-input {
   letter-spacing: 3px;
   font-size: 18px;
@@ -326,7 +325,7 @@
   font-weight: bold;
 }
 
-/* Error message styling */
+
 .error-message {
   color: #ff6b6b;
   background-color: rgba(255, 107, 107, 0.1);
@@ -338,7 +337,7 @@
   font-size: 14px;
 }
 
-/* Success message for OTP verification */
+
 .otp-success-message {
   color: #4caf50;
   background-color: rgba(76, 175, 80, 0.1);

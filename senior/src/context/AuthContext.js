@@ -32,7 +32,6 @@ export const AuthProvider = ({ children }) => {
           return;
         }
 
-        // ✅ Use server user (includes isAdmin)
         setUser(data.user);
         setToken(storedToken);
         localStorage.setItem("user", JSON.stringify(data.user));

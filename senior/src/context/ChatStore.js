@@ -1,4 +1,3 @@
-// src/context/ChatStore.jsx
 import React, { createContext, useContext, useEffect, useMemo, useState } from "react";
 
 const STORAGE_KEY = "pcbuild_chat_v1";
@@ -58,7 +57,7 @@ export function ChatStoreProvider({ children }) {
   const [conversations, setConversations] = useState([]);
   const [activeId, setActiveId] = useState(null);
 
-  // Load once
+
   useEffect(() => {
     const loaded = loadState();
     if (loaded?.conversations?.length) {
@@ -67,13 +66,13 @@ export function ChatStoreProvider({ children }) {
       return;
     }
 
-    // First run: create an initial conversation
+
     const convo = makeConversation();
     setConversations([convo]);
     setActiveId(convo.id);
   }, []);
 
-  // Persist
+
   useEffect(() => {
     if (!activeId) return;
     saveState({ conversations, activeId });
@@ -131,7 +130,6 @@ export function ChatStoreProvider({ children }) {
   function deleteConversation(id) {
     setConversations((prev) => {
       const next = prev.filter((c) => c.id !== id);
-      // Ensure at least one conversation exists
       if (next.length === 0) {
         const convo = makeConversation();
         setActiveId(convo.id);
@@ -142,9 +140,6 @@ export function ChatStoreProvider({ children }) {
     });
   }
 
-  // On refresh: start a new chat, but keep the last one saved in history
-  // This matches what you described ("on refresh start new conversation, last saved").
-  // Call this once from App root if you want this behavior always.
   function startNewChatOnRefresh() {
     newConversation({ makeActive: true });
   }

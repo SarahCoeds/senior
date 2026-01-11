@@ -1,6 +1,6 @@
-/* src/components/Notification.css */
+
 .notification {
-  position: relative; /* stack handles top/right */
+  position: relative;
   min-width: 300px;
   max-width: 400px;
   padding: 15px 20px;

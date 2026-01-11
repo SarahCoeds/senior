@@ -1,13 +1,13 @@
-/* NEW wrapper so we can add a header section */
+
 .products-page {
   width: 100%;
 }
 
-/* Category header under navbar */
+
 .products-category-header {
   width: 100%;
   padding: 18px 2rem 8px;
-  /* gives space under navbar without you guessing header height */
+
   margin-top: 10px;
 }
 
@@ -49,7 +49,7 @@
   }
 }
 
-/* Layout */
+
 .products-layout {
   display: grid;
   grid-template-columns: 280px 1fr;
@@ -65,7 +65,7 @@
   }
 }
 
-/* Sidebar */
+
 .products-sidebar {
   background: rgba(20, 20, 20, 0.75);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -114,7 +114,7 @@
   padding-top: 12px;
 }
 
-/* Price filter */
+
 .price-row {
   display: flex;
   justify-content: space-between;
@@ -137,14 +137,14 @@
   margin: 8px 0;
 }
 
-/* Grid */
+
 .products-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 18px;
 }
 
-/* Card */
+
 .product-card {
   background: rgba(20, 20, 20, 0.85);
   border-radius: 18px;
@@ -173,7 +173,7 @@
   display: block;
 }
 
-/* Card content */
+
 .product-info {
   padding: 14px;
   text-align: left;
@@ -219,7 +219,7 @@
   font-size: 1rem;
 }
 
-/* Buttons */
+
 .add-btn {
   padding: 0.55rem 0.9rem;
   border-radius: 12px;
@@ -256,23 +256,23 @@
   margin-top: 10px;
 }
 
-/* Empty */
+
 .empty-state {
   margin-top: 2rem;
   opacity: 0.8;
   text-align: center;
 }
 
-/* Modal */
+
 .modal-overlay {
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.65);
   display: flex;
-  align-items: flex-start; /* ✅ start so padding-top works */
+  align-items: flex-start; 
   justify-content: center;
-  padding: 110px 18px 18px; /* ✅ pushes modal below navbar */
-  z-index: 999999; /* ✅ must be above your navbar */
+  padding: 110px 18px 18px; 
+  z-index: 999999; 
 }
 
 @media (max-width: 860px) {
@@ -283,7 +283,7 @@
 
 .modal {
   width: min(980px, 100%);
-  max-height: calc(100vh - 140px); /* ✅ prevents it from going under */
+  max-height: calc(100vh - 140px); 
   background: rgba(20, 20, 20, 0.95);
   border-radius: 18px;
   border: 1px solid rgba(255,255,255,0.12);
@@ -321,7 +321,6 @@
   }
 }
 
-/* Contained image panel */
 .modal-image-panel {
   background: rgba(0,0,0,0.25);
   display: flex;
@@ -339,7 +338,7 @@
   background: rgba(0,0,0,0.25);
 }
 
-/* Right panel */
+
 .modal-details {
   padding: 18px;
   display: flex;

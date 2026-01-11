@@ -55,24 +55,23 @@
   background: #535bf2;
 }
 
-/* --------------------- PAST BUILDS --------------------- */
 .past-builds {
-  background: #f9f9f9; /* softer background */
+  background: #f9f9f9; 
   padding: 6rem 2rem;
 }
 
 .builds-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2.5rem; /* slightly larger gap */
+  gap: 2.5rem; 
   margin-top: 2.5rem;
 }
 
 .build-card {
   background: #ffffff;
-  border-radius: 16px; /* rounder corners */
+  border-radius: 16px; 
   overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); /* stronger shadow */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); 
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
@@ -96,11 +95,11 @@
 
 .build-card p {
   padding: 0 1rem 1rem;
-  color: #555; /* slightly darker for better readability */
+  color: #555; 
   font-size: 0.95rem;
 }
 
-/* --------------------- PARTNERS --------------------- */
+
 .partners {
   padding: 6rem 2rem;
 }
@@ -149,7 +148,7 @@
   color: #666;
 }
 
-/* --------------------- TESTIMONIALS --------------------- */
+
 .testimonials {
   background: #f5f5f5;
   padding: 6rem 2rem;
